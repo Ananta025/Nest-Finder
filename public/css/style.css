@@ -1,0 +1,154 @@
+body {
+  font-family: "Open Sans", serif;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container {
+  flex: 1;
+}
+/* Navbar */
+
+.navbar {
+  height: 4rem;
+  background-color: white;
+}
+
+.fa-compass {
+  color: #fa424b;
+  font-size: 2rem;
+}
+
+.navbar-toggler-icon {
+  font-size: medium;
+}
+.nav-link {
+  color: #222222 !important;
+}
+
+/* Footer */
+
+.footer {
+  background-color: #f8f9fa;
+  color: #222222 !important;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+}
+.f-info-socials {
+  font-size: 1.5rem;
+  color: #222222;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  width: 12rem;
+  margin: auto;
+  font-size: medium;
+}
+.fab {
+  padding: 0 0.1rem;
+}
+.fa-solid {
+  padding: 0 0.1rem;
+}
+.language {
+  color: #222222;
+  margin-left: 0.5rem;
+  text-decoration: none;
+}
+
+.f-info-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.f-info-links a {
+  text-decoration: none;
+  color: #222222;
+  font-size: 0.9rem;
+}
+
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+
+.company p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.f-info a {
+  color: #222222;
+}
+.f-info a:hover,
+.language:hover {
+  color: #616770;
+  text-decoration: underline;
+}
+
+.f-info-lang {
+  display: flex;
+  align-items: center;
+}
+
+/* Cards */
+
+.listing-card {
+  border: none;
+}
+.card-img-top {
+  border-radius: 1rem;
+  width: 100%;
+  object-fit: cover;
+}
+.card-text {
+  font-weight: 400;
+}
+
+.image-link {
+  text-decoration: none;
+  color: #222222;
+}
+
+/* Card effect */
+.card-img-overlay {
+  opacity: 0;
+}
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: white;
+}
+
+.add-btn {
+  background-color: #fa424b;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.show-img {
+  height: 40vh;
+  object-fit: cover;
+}
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+/* Map */
+
+#map {
+    height: 45vh;
+    width: 67%;
+}
