@@ -3,7 +3,6 @@
   #filters {
     display:flex;
     align-items: center;
-
   }
   .filter{
     text-align: center;
@@ -30,46 +29,49 @@
     display: flex;
     align-items: center;
   }
+  .filter-icon{
+    font-size: 1.15rem;
+  }
 </style>
 <div id="filters">
   <div class="filter">
-    <div><i class="fa-solid fa-fire"></i></div>
+    <div class="filter-icon"><i class="fa-solid fa-fire"></i></div>
     <p>Trending</p>
   </div>
   <div class="filter">
-    <div><i class="fa-solid fa-bed-pulse"></i></div>
+    <div class="filter-icon"><i class="fa-solid fa-bed-pulse"></i></div>
     <p>Rooms</p>
   </div>
   <div class="filter">
-    <div><i class="fa-solid fa-mountain-city"></i></div>
+    <div class="filter-icon"><i class="fa-solid fa-mountain-city"></i></div>
     <p>Iconic cities</p>
   </div>
   <div class="filter">
-    <div><i class="fa-solid fa-person-swimming"></i></div>
+    <div class="filter-icon"><i class="fa-solid fa-person-swimming"></i></div>
     <p>Amazing pools</p>
   </div>
   <div class="filter">
-    <div><i class="fa-brands fa-fort-awesome"></i></div>
+    <div class="filter-icon"><i class="fa-brands fa-fort-awesome"></i></div>
     <p>Castles</p>
   </div>
   <div class="filter">
-    <div><i class="fa-solid fa-house-flag"></i></div>
+    <div class="filter-icon"><i class="fa-solid fa-house-flag"></i></div>
     <p>Camping</p>
   </div>
   <div class="filter">
-    <div><i class="fa-solid fa-tree-city"></i></div>
+    <div class="filter-icon"><i class="fa-solid fa-tree-city"></i></div>
     <p>Tree house</p>
   </div>
   <div class="filter">
-    <div><i class="fa-solid fa-cow"></i></div>
+    <div class="filter-icon"><i class="fa-solid fa-cow"></i></div>
     <p>Farms</p>
   </div>
   <div class="filter">
-    <div><i class="fa-brands fa-fly"></i></div>
+    <div class="filter-icon"><i class="fa-brands fa-fly"></i></div>
     <p>OMG!</p>
   </div>
   <div class="filter">
-    <div><i class="fa-regular fa-snowflake"></i></div>
+    <div class="filter-icon"><i class="fa-regular fa-snowflake"></i></div>
     <p>Arctic</p>
   </div>
 
@@ -100,9 +102,10 @@
             </div>
             <div class="card-body p-2">
               <p class="card-text">
-                <b><%= listing.title %></b> <br />
-                <%= listing.price ? listing.price.toLocaleString("en-IN") : 0 %> / Night
-                <i class="tax-info">&nbsp; +18% GST</i>
+                <b><%= listing.title %></b><br>
+                <%= listing.location %><br>
+                <b>₹ <%= listing.price ? listing.price.toLocaleString("en-IN") : 0 %></b> / Night
+                <i class="tax-info">&nbsp;+18% GST</i>
               </p>
             </div>
           </div>
