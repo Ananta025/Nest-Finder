@@ -22,8 +22,8 @@ const User = require("./models/user.js");
 const userRouter = require("./routes/user.js");
 const { saveRedirectUrl } = require("./middleware.js");
 
-
-const MONGO_URL = process.env.MONGO_ATLAS_URL;
+const MONGO_URL = "mongodb://localhost:27017/wanderlust";
+// const MONGO_URL = process.env.MONGO_ATLAS_URL;
 
 async function connectDB() {
     await mongoose.connect(MONGO_URL);
@@ -44,20 +44,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-const store = MongoStore.create({
-    mongoUrl: MONGO_URL,
-    crypto:{
-        secret: process.env.SECRET
-    },
-    touchAfter: 24 * 3600
-});
+// const store = MongoStore.create({
+//     mongoUrl: MONGO_URL,
+//     crypto:{
+//         secret: process.env.SECRET
+//     },
+//     touchAfter: 24 * 3600
+// });
 
-store.on("err",()=>{
-    console.log("Mongo-Session store error", err);
-})
+// store.on("err",()=>{
+//     console.log("Mongo-Session store error", err);
+// })
 
 const sessionOptions = {
-    store,
+    // store,
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,

@@ -1,43 +1,44 @@
 <% layout("/layouts/boilerplate") %>
-<div class="row">
-<div class="col col-8 offset-2">
-<body>
-    <form method="post" action="/listings" novalidate class="needs-validation"  enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input name="title" type="text" placeholder="Enter new title" class="form-control" required>
-            <div class="valid-feedback">Title looks good</div>
+<div class="row mt-3">
+  <div class="col-12 col-md-10 col-lg-8 mx-auto">
+    <h2 class="mb-4 text-center">Add New Listing</h2>
+    <form method="post" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input name="title" id="title" type="text" placeholder="Enter new title" class="form-control" required>
+        <div class="valid-feedback">Title looks good</div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="description" id="description" placeholder="Enter description" class="form-control" required></textarea>
+        <div class="invalid-feedback">Please enter a short description</div>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload Image</label>
+        <input name="image[url]" id="image" type="file" class="form-control" required>
+        <div class="invalid-feedback">Please upload an image</div>
+      </div>
+      <div class="row">
+        <div class="mb-3 col-12 col-sm-4">
+          <label for="price" class="form-label">Price</label>
+          <input name="price" id="price" type="number" placeholder="Enter price" class="form-control" required>
+          <div class="invalid-feedback">Price should be valid</div>
         </div>
-        <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <textarea name="description" placeholder="Enter description" class="form-control" required></textarea>
-            <div class="invalid-feedback">Please enter a short description</div>
+        <div class="mb-3 col-12 col-sm-8">
+          <label for="country" class="form-label">Country</label>
+          <input name="country" id="country" type="text" placeholder="Enter country" class="form-control" required>
+          <div class="invalid-feedback">Country should be valid</div>
         </div>
-        <div class="mb-3">
-            <label for="imageUrl" class="form-label">Upload Image</label>
-            <input name="image[url]" type="file" class="form-control" required>
-            <div class="invalid-feedback">Please upload an image</div>
-        </div>
-        <div class="row">
-        <div class="mb-3 col-md-4">
-            <label for="price" class="form-label">Price</label>
-            <input name="price" type="number" placeholder="Enter price" class="form-control" required>
-            <div class="invalid-feedback">Price should be valid</div>
-        </div>
-        <div class="mb-3 col-md-8">
-            <label for="country" class="form-label">Country</label>
-            <input name="country" type="text" placeholder="Enter country" class="form-control" required>
-            <div class="invalid-feedback">Country should be valid</div>
-        </div>
-        </div>
-        <div class="mb-3">
-            <label for="location" class="form-label">Location</label>
-            <input name="location" type="text" placeholder="Enter location" class="form-control" required>
-            <div class="invalid-feedback">Location should be valid</div>
-        </div>
-        
-        <button class="add-btn" type="submit">Add</button>
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input name="location" id="location" type="text" placeholder="Enter location" class="form-control" required>
+        <div class="invalid-feedback">Location should be valid</div>
+      </div>
+      
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary btn-lg" type="submit">Add Listing</button>
+      </div>
     </form>
-</body>
-</div>
+  </div>
 </div>

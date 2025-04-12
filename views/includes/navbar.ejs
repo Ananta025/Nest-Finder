@@ -2,17 +2,110 @@
   .search-btn {
     background-color: #fe424d;
     color: white;
+    transition: all 0.3s ease;
   }
   .search-btn:hover {
-    background-color: #fe424d;
+    background-color: #e63741;
     color: white;
+    transform: scale(1.05);
   }
   .search-input {
-    padding: 0rem 5rem 0rem 2rem;
+    padding: 0.5rem 1rem;
     border-radius: 2rem;
+    width: 100%;
+    transition: all 0.3s ease;
   }
-  .signup-btn{
+  .signup-btn {
     color: #fe424d !important;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  .signup-btn:hover {
+    transform: scale(1.05);
+  }
+  .navbar {
+    transition: all 0.3s ease;
+  }
+  .navbar-brand i {
+    font-size: 1.5rem;
+    color: #fe424d;
+  }
+  .nav-link {
+    transition: all 0.2s ease;
+    margin: 0 0.2rem;
+  }
+  .nav-link:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Hamburger menu styling */
+  .navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+    transition: all 0.3s;
+  }
+  .navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  /* Search form responsiveness */
+  .search-form {
+    display: flex;
+    flex-grow: 1;
+    max-width: 450px;
+    margin: 0.5rem 1rem;
+  }
+  
+  /* Media queries for better responsiveness */
+  @media (max-width: 767px) {
+    .search-form {
+      width: 100%;
+      margin: 0.5rem 0;
+      order: 3;
+    }
+    .navbar-nav {
+      margin: 0.5rem 0;
+    }
+    .log .nav-link {
+      padding: 0.5rem 0;
+    }
+    
+    /* Mobile menu background styling */
+    .navbar-collapse {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      margin-top: 0.5rem;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    .navbar-collapse.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .navbar-collapse.collapsing {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    
+    .navbar-nav .nav-link {
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      margin: 0.25rem 0;
+    }
+    
+    .navbar-nav .nav-link:hover {
+      background-color: #f8f9fa;
+    }
+    
+    /* Highlight the signup button more on mobile */
+    .signup-btn {
+      background-color: rgba(254, 66, 77, 0.1);
+      margin-top: 0.5rem !important;
+    }
   }
 </style>
 
@@ -26,8 +119,8 @@
         <div class="navbar-nav">
           <a class="nav-link" href="/listings">Explore</a>
         </div>
-        <div class="navbar-nav ms-auto">
-          <form class="d-flex" role="search">
+        <div class="navbar-nav mx-auto search-form">
+          <form class="d-flex w-100" role="search">
             <input class="form-control me-2 search-input" type="search" placeholder="Search destinations">
             <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
@@ -36,7 +129,7 @@
           <a class="nav-link" href="/listings/new">Setup your nest</a>
           <% if(!currentUser) { %>
             <a class="nav-link" href="/login">Log In</a>
-            <a class="nav-link signup-btn" aria-current="page" href="/register"><b>Sign Up</b></a>
+            <a class="nav-link signup-btn" href="/register">Sign Up</a>
           <% } %>
           <% if(currentUser) { %>
           <a class="nav-link" href="/logout">Logout</a>
@@ -45,3 +138,36 @@
       </div>
     </div>
   </nav>
+  
+  <script>
+    // Add smooth transition for hamburger menu
+    document.addEventListener('DOMContentLoaded', function() {
+      const navbarToggler = document.querySelector('.navbar-toggler');
+      const navbarCollapse = document.querySelector('.navbar-collapse');
+      
+      navbarToggler.addEventListener('click', function() {
+        // Add a small delay to allow CSS transitions to work
+        setTimeout(() => {
+          if (navbarCollapse.classList.contains('show')) {
+            navbarCollapse.style.opacity = '1';
+            navbarCollapse.style.transform = 'translateY(0)';
+          } else {
+            navbarCollapse.style.opacity = '0';
+            navbarCollapse.style.transform = 'translateY(-10px)';
+          }
+        }, 50);
+      });
+      
+      // Reset opacity when navbar is shown
+      navbarCollapse.addEventListener('shown.bs.collapse', function() {
+        navbarCollapse.style.opacity = '1';
+        navbarCollapse.style.transform = 'translateY(0)';
+      });
+      
+      // Set opacity to 0 before hiding
+      navbarCollapse.addEventListener('hide.bs.collapse', function() {
+        navbarCollapse.style.opacity = '0';
+        navbarCollapse.style.transform = 'translateY(-10px)';
+      });
+    });
+  </script>
